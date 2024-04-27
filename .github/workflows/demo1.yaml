@@ -2,7 +2,7 @@ name: Events demo 1
 on:
   pull_request:
     types: [ opened] 
-  workflow-dispatch:
+  workflow_dispatch:
 jobs:
   deploy:
     runs-on: ubtuntu-latest 
