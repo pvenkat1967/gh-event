@@ -1,0 +1,23 @@
+name: Events demo 1
+on:
+  types:
+    pull_request:
+      - opened
+    workflow-dispatch:
+jobs:
+  deploy:
+    runs-on: ubtuntu-latest 
+    steps:
+      - name: Output event data 
+        run: echo "${{ toJSON(github.event) }}"
+      - name: Get code
+        run: actions/checkout@v3
+      - name: Install dependencies
+        run: npm ci
+      - name: Test code
+        run: npm run test
+      - name: Build code
+        run: npm run build 
+      - name: Deploy
+        run: echo " Deploying..."
+
